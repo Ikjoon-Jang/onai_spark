@@ -20,6 +20,7 @@ df = spark.readStream \
     .option("startingOffsets", "earliest") \
     .load()
 
+'''
 df_raw = df.selectExpr("CAST(value AS STRING)")
 
 query_raw = df_raw.writeStream \
@@ -51,5 +52,3 @@ query = df_parsed.writeStream \
 
 
 query.awaitTermination()'
-
-'''
