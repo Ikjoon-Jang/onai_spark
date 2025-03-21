@@ -8,7 +8,7 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 # Kafka에서 읽어올 토픽 설정
-kafka_topic = "test-topic"
+kafka_topic = "qlinx-orders-topic"
 kafka_bootstrap_servers = "localhost:9092"
 
 # Kafka 스트림 데이터 읽기
