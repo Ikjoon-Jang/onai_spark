@@ -51,4 +51,4 @@ query = df_parsed.writeStream \
     .start()
 
 
-query.awaitTermination()'
+query.awaitTermination()
