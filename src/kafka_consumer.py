@@ -22,10 +22,10 @@ df = spark.readStream \
 # JSON 데이터 파싱
 schema = StructType([
     StructField("order_id", StringType(), True),
-    StructField("departure", IntegerType(), True),
-    StructField("destination", IntegerType(), True),
-    StructField("customer", IntegerType(), True),
-    StructField("status", IntegerType(), True)
+    StructField("departure", StringType(), True),
+    StructField("destination", StringType(), True),
+    StructField("customer", StringType(), True),
+    StructField("status", StringType(), True)
 ])
 
 df_parsed = df.selectExpr("CAST(value AS STRING)") \
