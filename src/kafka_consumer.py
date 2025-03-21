@@ -20,17 +20,6 @@ df = spark.readStream \
     .option("startingOffsets", "earliest") \
     .load()
 
-'''
-df_raw = df.selectExpr("CAST(value AS STRING)")
-
-query_raw = df_raw.writeStream \
-    .outputMode("append") \
-    .format("console") \
-    .start()
-
-query_raw.awaitTermination()
-
-'''
 # JSON 데이터 파싱
 schema = StructType([
     StructField("order_id", StringType(), True),
