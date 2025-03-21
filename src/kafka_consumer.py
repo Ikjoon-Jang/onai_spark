@@ -9,7 +9,7 @@ spark = SparkSession.builder \
 
 # Kafka에서 읽어올 토픽 설정
 kafka_topic = "qlinx-orders-topic"
-kafka_bootstrap_servers = "localhost:9092"
+kafka_bootstrap_servers = "3.36.178.68:9092"
 
 # Kafka 스트림 데이터 읽기
 df = spark.readStream \
@@ -21,8 +21,11 @@ df = spark.readStream \
 
 # JSON 데이터 파싱
 schema = StructType([
-    StructField("name", StringType(), True),
-    StructField("age", IntegerType(), True)
+    StructField("order_id", StringType(), True),
+    StructField("departure", IntegerType(), True),
+    StructField("destination", IntegerType(), True),
+    StructField("customer", IntegerType(), True),
+    StructField("status", IntegerType(), True)
 ])
 
 df_parsed = df.selectExpr("CAST(value AS STRING)") \
